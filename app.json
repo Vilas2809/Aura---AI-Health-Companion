@@ -50,12 +50,6 @@
           "color": "#6C63FF"
         }
       ],
-      [
-        "react-native-health",
-        {
-          "isClinicalDataEnabled": false
-        }
-      ],
       "expo-sensors",
       "expo-web-browser"
     ],
