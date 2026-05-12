@@ -1,0 +1,70 @@
+{
+  "expo": {
+    "name": "Aura",
+    "slug": "aura-health",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0F1117"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.aura.health",
+      "infoPlist": {
+        "NSMotionUsageDescription": "Aura uses motion sensors to count your steps.",
+        "NSHealthShareUsageDescription": "Aura reads your HRV, sleep, and heart rate from Apple Health to calculate your daily recovery score.",
+        "NSHealthUpdateUsageDescription": "Aura writes workout data to Apple Health.",
+        "NSHealthRequiredReadAuthorizationTypeIdentifiers": [
+          "HKQuantityTypeIdentifierHeartRateVariabilitySDNN",
+          "HKQuantityTypeIdentifierRestingHeartRate",
+          "HKCategoryTypeIdentifierSleepAnalysis",
+          "HKQuantityTypeIdentifierHeartRate",
+          "HKQuantityTypeIdentifierStepCount"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0F1117"
+      },
+      "package": "com.aura.health",
+      "permissions": [
+        "ACTIVITY_RECOGNITION",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#6C63FF"
+        }
+      ],
+      [
+        "react-native-health",
+        {
+          "isClinicalDataEnabled": false
+        }
+      ],
+      "expo-sensors",
+      "expo-web-browser"
+    ],
+    "sdkVersion": "54.0.0",
+    "newArchEnabled": false,
+    "extra": {
+      "eas": {
+        "projectId": "6f2235a0-d6df-42e6-b702-ec37fd399a28"
+      }
+    }
+  }
+}
