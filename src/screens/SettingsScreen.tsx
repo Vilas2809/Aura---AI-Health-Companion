@@ -2,7 +2,8 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import {
-  Alert,
+  Alert, // used on native inside confirmAction
+  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -11,6 +12,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
+function confirmAction(title: string, message: string, onConfirm: () => void) {
+  if (Platform.OS === 'web') {
+    if (window.confirm(`${title}\n\n${message}`)) onConfirm();
+    return;
+  }
+  Alert.alert(title, message, [
+    { text: 'Cancel', style: 'cancel' },
+    { text: 'Confirm', style: 'destructive', onPress: onConfirm },
+  ]);
+}
 import { Colors } from '../constants/colors';
 import { RootStackParamList } from '../navigation/AppNavigator';
 import {
@@ -140,32 +152,22 @@ export function SettingsScreen() {
   };
 
   const handleReset = () => {
-    Alert.alert(
+    confirmAction(
       'Reset Profile',
       'This will delete all your profile data and progress logs. Are you sure?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Reset',
-          style: 'destructive',
-          onPress: () => {
-            resetProfile();
-            clearEntries();
-            navigation.replace('Onboarding');
-          },
-        },
-      ]
+      () => {
+        resetProfile();
+        clearEntries();
+        navigation.replace('Onboarding');
+      }
     );
   };
 
   const handleClearProgress = () => {
-    Alert.alert(
+    confirmAction(
       'Clear Progress',
       'This will delete all your weekly logs. Your profile will remain.',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Clear', style: 'destructive', onPress: () => clearEntries() },
-      ]
+      () => clearEntries()
     );
   };
 

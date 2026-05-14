@@ -42,6 +42,17 @@
         "VIBRATE"
       ]
     },
+    "web": {
+      "favicon": "./assets/icon.png",
+      "name": "Aura",
+      "shortName": "Aura",
+      "description": "Your AI health companion — steps, recovery, meals and workouts in one place.",
+      "themeColor": "#6C63FF",
+      "backgroundColor": "#0F1117",
+      "display": "standalone",
+      "orientation": "portrait",
+      "lang": "en"
+    },
     "plugins": [
       [
         "expo-notifications",

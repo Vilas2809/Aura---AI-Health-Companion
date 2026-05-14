@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Aura</title>
+    <style id="expo-reset">
+      html, body { height: 100%; margin: 0; }
+      body { overflow: hidden; background: #0F1117; }
+      #root { display: flex; height: 100%; flex: 1; }
+    </style>
+    <meta name="theme-color" content="#6C63FF" />
+    <meta name="description" content="Your AI health companion" />
+    <link rel="icon" href="/favicon.ico" />
+    <script>
+      window.onerror = function(msg, src, line, col, err) {
+        document.body.style.cssText = 'background:#0F1117;color:#FF4C4C;padding:20px;font-family:monospace;overflow:auto;display:block';
+        document.getElementById('root').innerHTML =
+          '<h2 style="color:#FF4C4C;margin-top:60px">JS Error: ' + msg + '</h2>' +
+          '<pre style="color:#ccc;font-size:12px;white-space:pre-wrap">' + (err ? err.stack : src + ':' + line) + '</pre>';
+        return false;
+      };
+      window.addEventListener('unhandledrejection', function(e) {
+        document.body.style.cssText = 'background:#0F1117;color:#FF4C4C;padding:20px;font-family:monospace;overflow:auto;display:block';
+        document.getElementById('root').innerHTML =
+          '<h2 style="color:#FF4C4C;margin-top:60px">Promise Error</h2>' +
+          '<pre style="color:#ccc;font-size:12px;white-space:pre-wrap">' + (e.reason ? (e.reason.stack || String(e.reason)) : 'unknown') + '</pre>';
+      });
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

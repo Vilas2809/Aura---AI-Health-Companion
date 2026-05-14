@@ -1,0 +1,10 @@
+[build]
+  command = "npx expo export --platform web && node scripts/patch-html.js"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"

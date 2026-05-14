@@ -1,1 +1,45 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+android/build/
+android/.gradle/
+android/app/build/
+android/app/debug.keystore
+*.apk
+*.aab
+*.ipa
+fsevents-2.3.3.tgz
+
+# Netlify
+.netlify/
+
+# Claude Code
+.claude/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
