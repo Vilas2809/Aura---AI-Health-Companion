@@ -6,11 +6,9 @@ node_modules/
 dist/
 web-build/
 
-# Environment variables — NEVER commit these
+# Environment variables
 .env
 .env.example
-.env.local
-.env.*.local
 
 # Build artifacts
 android/build/
