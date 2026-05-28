@@ -8,6 +8,7 @@ web-build/
 
 # Environment variables — NEVER commit these
 .env
+.env.example
 .env.local
 .env.*.local
 
